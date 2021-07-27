@@ -2,23 +2,32 @@
 
 buildscript {
     repositories {
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-alpha4'
+        classpath 'com.android.tools.build:gradle:4.2.2'
 
-        // For Bintray publishing
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+//        // For Bintray publishing
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2' // JCenter sunset: https://developer.android.com/studio/build/jcenter-migration
+//
+//        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5' // Abandoned: https://github.com/dcendents/android-maven-gradle-plugin https://developer.android.com/studio/build/maven-publish-plugin
     }
+}
+
+plugins {
+    id "com.jfrog.bintray" version "1.8.5"
+    id "com.github.dcendents.android-maven" version "2.1"
+    // id 'maven-publish'
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
